@@ -11,6 +11,7 @@ User = get_user_model()
 class DogReportCreateAPIView(CreateAPIView):
     queryset = Dog.objects.all()
     serializer_class = DogModelSerializer
+    # permission_classes = [IsAuthenticated]
 
 
 

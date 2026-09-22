@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from .serializers import DogReportModelSerializer
+from .models import DogReport
+from rest_framework.generics import CreateAPIView
 
-# Create your views here.
+
+
+class DogReportCreateAPIView(CreateAPIView):
+    queryset = DogReport.objects.all()
+    serializer_class = DogReportModelSerializer
+
+

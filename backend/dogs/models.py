@@ -22,8 +22,8 @@ class Dog(models.Model):
 
     sex = models.CharField(max_length=10,choices=Sex.choices,default=Sex.UNKNOWN)
 
-    estimated_age = models.PositiveSmallIntegerField(null=True,blank=True,help_text="Estimated age in years.")
-
+    estimated_age = models.PositiveSmallIntegerField(null=True,blank=True,help_text="Estimated age in months.")
+ 
     breed = models.CharField(max_length=100,blank=True)
 
     color = models.CharField(max_length=100,blank=True)
