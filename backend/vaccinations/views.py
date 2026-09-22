@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from .models import VaccinationRecord
+from .serializers import VaccinationRecordModelSerializer
+from rest_framework.generics import CreateAPIView
 
-# Create your views here.
+
+
+class VaccinationRecordCreateAPIView(CreateAPIView):
+    queryset = VaccinationRecord.objects.all()
+    serializer_class = VaccinationRecordModelSerializer
+
+
