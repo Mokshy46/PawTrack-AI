@@ -20,6 +20,7 @@ class UserModelSerializer(serializers.ModelSerializer):
         ]
         
     def create(self, validated_data):
+        
         return User.objects.create_user(
             username=validated_data["email"],
             **validated_data,

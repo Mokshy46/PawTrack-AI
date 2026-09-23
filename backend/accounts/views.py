@@ -13,30 +13,7 @@ class UserCreateAPIView(CreateAPIView):
     serializer_class = UserModelSerializer
     permission_classes = [AllowAny]
     
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
 
-        user = serializer.save()
-
-        refresh = RefreshToken.for_user(user)
-
-        return Response(
-            {
-                "user": {
-                    "id": str(user.id),
-                    "email": user.email,
-                    "role": user.role,
-                    "first_name": user.first_name,
-                    "last_name": user.last_name,
-                },
-                "tokens": {
-                    "access": str(refresh.access_token),
-                    "refresh": str(refresh),
-                },
-            },
-            status=status.HTTP_201_CREATED,
-        )
 
 
 

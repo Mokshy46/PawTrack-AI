@@ -6,5 +6,12 @@ class DogReportModelSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = DogReport
-        fields = "__all__"
+        fields = '__all__'
+        
+class DogReportCreateSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = DogReport
+        fields = ["dog","original_image","description", "location_name"]
+        
         
