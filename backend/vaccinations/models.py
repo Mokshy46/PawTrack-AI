@@ -32,7 +32,7 @@ class VaccinationRecord(models.Model):
 
     evidence_image = models.ImageField(upload_to="vaccinations/evidence/")
 
-    administered_at = models.DateTimeField()
+    administered_at = models.DateTimeField(auto_now_add=True)
 
     latitude = models.DecimalField(max_digits=9,decimal_places=6,null=True,blank=True)
 
