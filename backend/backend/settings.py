@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'verifications',
     'rest_framework',
     'rest_framework_simplejwt',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -169,3 +170,26 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": True,      
     "BLACKLIST_AFTER_ROTATION": True,   
     }
+
+
+
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")  
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")  
+
+AWS_S3_ENDPOINT_URL = os.getenv("AWS_S3_ENDPOINT_URL") 
+
+
+AWS_S3_URL_PROTOCOL = os.getenv("AWS_S3_URL_PROTOCOL")  
+AWS_QUERYSTRING_AUTH = os.getenv("AWS_QUERYSTRING_AUTH")  
+AWS_S3_SIGNATURE_VERSION = os.getenv("AWS_S3_SIGNATURE_VERSION") 
+
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
