@@ -193,3 +193,9 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+
+
+
+OPEN_AI_API_KEYS = os.getenv("OPEN_AI_API_KEYS")
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
