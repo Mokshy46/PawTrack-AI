@@ -1,2 +1,12 @@
-.env 
+.env
+*.env
+
+backend/.env
+frontend/.env
+
+venv/
+.venv/
+__pycache__/
+*.pyc
+
 test_images/
