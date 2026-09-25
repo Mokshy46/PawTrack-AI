@@ -55,3 +55,38 @@ class VaccinationRecord(models.Model):
 
     def __str__(self):
         return f"{self.dog.tag_id} - {self.vaccine_type}"
+    
+    
+    
+class VaccinationAIAnalysis(models.Model):
+    vaccination = models.OneToOneField(
+        "VaccinationRecord",
+        on_delete=models.CASCADE,
+        related_name="ai_analysis"
+    )
+
+    dog_detected = models.BooleanField(default=False)
+
+    ear_tag_detected = models.BooleanField(default=False)
+
+    ear_tag_number = models.CharField(
+        max_length=100,
+        blank=True
+    )
+
+    ear_tag_readable = models.BooleanField(default=False)
+
+    image_quality = models.CharField(
+        max_length=20,
+        blank=True
+    )
+
+    issues = models.JSONField(
+        default=list,
+        blank=True
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"AI Analysis - {self.vaccination.dog.tag_id}"

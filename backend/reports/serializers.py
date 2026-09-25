@@ -32,6 +32,6 @@ class DogReportCreateSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = DogReport
-        fields = ["dog","original_image","description", "location_name"]
+        fields = ["id","dog","original_image","description", "location_name"]
         
         
